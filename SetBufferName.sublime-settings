@@ -1,0 +1,13 @@
+{
+	"auto_prefix": true, // if true, will insert the prefix text if none exists in the name already
+	"prefix": "-- [%s] %c", // the prefix to insert
+	// formatting options:
+	// %s = the syntax (Python/Lua/C++/etc)
+	// %c = where to place the cursor, defaults to end
+	
+	"substitutions": { // dictionary of syntax names to replace; case sensitive
+		// "Plain text": "Text",
+		// "Regular Expression": "Regex",
+		// "JavaScript": "Javascript"
+	}
+}

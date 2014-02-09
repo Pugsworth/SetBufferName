@@ -1,0 +1,6 @@
+[
+	{
+		"caption":	"Set Buffer Name",
+		"command":	"set_buffer_name"
+	}
+]
