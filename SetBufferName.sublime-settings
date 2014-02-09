@@ -1,5 +1,5 @@
 {
-	"auto_prefix": true, // if true, will insert the prefix text if none exists in the name already
+	"auto_prefix": false, // if true, will insert the prefix text if none exists in the name already
 	"prefix": "-- [%s] %c", // the prefix to insert
 	// formatting options:
 	// %s = the syntax name (Python/Lua/C++/etc). The name is based on the filename because I am unsure how to get the name from sublime.
