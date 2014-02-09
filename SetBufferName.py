@@ -12,27 +12,25 @@ class SetBufferNameCommand(sublime_plugin.WindowCommand):
 		self.substitutions = settings.get("substitutions");
 
 		if view.file_name() != None:
-			sublime.status_message("Buffer has filename, cannot change buffer name.");
+			sublime.status_message("Not a temporary buffer, cannot change name.");
 			return False;
 
 		# Authored by Dr. WritesCodeInAwfulBlocks (TODO: less awful)
-		curname = view.name();
-		self.oldname = curname;
-		prefixregex = self.prefix.replace("%c", "").replace("%s", self.get_syntax(view));
-		matchpos = curname.find(prefixregex);
+		self.oldname = view.name();
 		prefixformatted = self.prefix.replace("%s", self.get_syntax(view));
 		prefixcaretregex = re.search("%c", prefixformatted);
 		prefixcaretpos = prefixcaretregex != None and prefixcaretregex.start() or -1;
 		prefixformatted = prefixformatted.replace("%c", "");
+		bnameempty = view.name().strip() == "";
 
 		name = None;
-		if matchpos > -1:
-			name = curname;
-		else:
+		if bnameempty:
 			name = prefixformatted;
+		else:
+			name = self.oldname;
 
 		panel = self.window.show_input_panel("Set Name:", name, self.done, self.change, self.cancel);
-		if matchpos == -1 and prefixcaretregex > -1:
+		if bnameempty and prefixcaretregex > -1:
 			panel.sel().clear(); # Clear the default caret placement
 			panel.sel().add(sublime.Region(prefixcaretpos));
 
