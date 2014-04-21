@@ -5,9 +5,9 @@
 	// %s = the syntax name (Python/Lua/C++/etc). The name is based on the filename because I am unsure how to get the name from sublime.
 	// %c = where to place the cursor, defaults to end
 	
-	"substitutions": { // dictionary of syntax names to replace; case sensitive
-		// "Plain text": "Text",
-		// "Regular Expression": "Regex",
-		// "JavaScript": "Javascript"
+	"substitutions": { // dictionary of syntax names to replace; keys are lowercase
+		// "plain text": "Text",
+		// "regular expression": "Regex",
+		// "javascript": "Javascript"
 	}
 }

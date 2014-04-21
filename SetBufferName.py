@@ -56,8 +56,13 @@ class SetBufferNameCommand(sublime_plugin.WindowCommand):
 		reg = re.search("/([^/]+).tmLanguage", view.settings().get("syntax"));
 		if reg != None:
 			syntax = reg.group(1);
-			if syntax in self.substitutions:
-				return self.substitutions[syntax];
+			print(syntax.lower());
+			print(self.substitutions);
+			try:
+				if syntax.lower() in self.substitutions:
+					return self.substitutions[syntax.lower()];				
+			except:
+				pass;
 
 			return syntax;
 
